@@ -15,10 +15,13 @@ class CreateDoctorServiceTable extends Migration
     {
         Schema::create('doctor_service', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('doctor_id');
-            $table->integer('service_id');
+            $table->unsignedBigInteger('doctor_id');
+            $table->unsignedBigInteger('service_id');
             $table->integer('cost');
             $table->timestamps();
+
+            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('service_id')->references('id')->on('services');
         });
     }
 
