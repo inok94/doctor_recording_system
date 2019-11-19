@@ -20,10 +20,6 @@ class CreateSchedulesTable extends Migration
             $table->unsignedBigInteger('service_id');
             $table->dateTime('data_patient_visit');
             $table->timestamps();
-
-            $table->foreign('doctor_id')->references('id')->on('doctors');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('service_id')->references('id')->on('services');
         });
     }
 

@@ -15,11 +15,9 @@ class CreateSchedulesDoctorsTable extends Migration
     {
         Schema::create('schedules_doctors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('doctor_id');
+            $table->integer('doctor_id');
             $table->date('data');
             $table->timestamps();
-
-            $table->foreign('doctor_id')->references('id')->on('doctors');
         });
     }
 
