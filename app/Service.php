@@ -6,15 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    protected $table = 'services';
-
-    public function category()
-    {
-       return $this->belongsTo('App\Category');
-    }
+    protected $primaryKey = 'id';
 
     public function doctor()
     {
         return $this->belongsToMany('App\Doctor');
+    }
+    public function doctorService()
+    {
+        return $this->hasMany('App\DoctorService');
     }
 }

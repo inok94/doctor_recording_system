@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDoctorServiceTable extends Migration
+class CreateCacheTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDoctorServiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_service', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('doctor_id');
-            $table->integer('service_id');
-            $table->integer('cost');
-            $table->timestamps();
+        Schema::create('cache', function (Blueprint $table) {
+            $table->string('key')->unique();
+            $table->mediumText('value');
+            $table->integer('expiration');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateDoctorServiceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_service');
+        Schema::dropIfExists('cache');
     }
 }

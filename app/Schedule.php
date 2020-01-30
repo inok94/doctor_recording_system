@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Schedule extends Model
 {
-    protected $table = 'Schedules';
+    //protected $table = 'Schedules';
 
     public function doctor()
     {
